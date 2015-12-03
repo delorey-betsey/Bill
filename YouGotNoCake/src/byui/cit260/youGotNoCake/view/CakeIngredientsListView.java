@@ -11,34 +11,34 @@ package byui.cit260.youGotNoCake.view;
  */
 public class CakeIngredientsListView {
     
-    public enum Ingredient {
-        flour,
-        sugar,
-        butta,
-        bananas;        
-    }
-    
-    public static CakeIngredient[] createIngredientList() {
-        //created array(list) of cake ingredients
-        CakeIngredient[] ingredients = 
-                new CakeIngredient[Constants.NUMBER_OF_INGREDIENTS_FOUND]; 
-        
-        CakeIngredient flour = new CakeIngredient();
-        flour.setFoundFlag(false);
-        ingredients[ingredient.flour.ordinal()] = flour;
-        
-        CakeIngredient sugar = new CakeIngredient();
-        sugar.setFoundFlag(false);
-        ingredients[ingredient.sugar.ordinal()] = sugar;
-        
-        CakeIngredient butta = new CakeIngredient();
-        butta.setFoundFlag(false);
-        ingredients[ingredient.butta.ordinal()] = butta;
-        
-        CakeIngredient bananas = new CakeIngredient();
-        bananas.setFoundFlag(false);
-        ingredients[ingredient.bananas.ordinal()] = bananas;    
-    }
+//    public enum Ingredient {
+//        flour,
+//        sugar,
+//        butta,
+//        bananas;        
+//    }
+//    
+//    public static CakeIngredient[] createIngredientList() {
+//        //created array(list) of cake ingredients
+//        CakeIngredient[] ingredients = 
+//                new CakeIngredient[Constants.NUMBER_OF_INGREDIENTS_FOUND]; 
+//        
+//        CakeIngredient flour = new CakeIngredient();
+//        flour.setFoundFlag(false);
+//        ingredients[ingredient.flour.ordinal()] = flour;
+//        
+//        CakeIngredient sugar = new CakeIngredient();
+//        sugar.setFoundFlag(false);
+//        ingredients[ingredient.sugar.ordinal()] = sugar;
+//        
+//        CakeIngredient butta = new CakeIngredient();
+//        butta.setFoundFlag(false);
+//        ingredients[ingredient.butta.ordinal()] = butta;
+//        
+//        CakeIngredient bananas = new CakeIngredient();
+//        bananas.setFoundFlag(false);
+//        ingredients[ingredient.bananas.ordinal()] = bananas;    
+//    }
     
     public void doAction(char selection)  {
         switch (selection) {

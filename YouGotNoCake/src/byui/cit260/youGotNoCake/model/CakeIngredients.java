@@ -8,12 +8,18 @@ public class CakeIngredients implements Serializable{
     private String itemSugar;
     private String itemButta;
     private String itemBananas;
+    private String[] cakeIngredientsArray;
 
     public CakeIngredients() {
         itemFlour = "Flour";
         itemSugar = "Sugar";
         itemButta = "Butta";
         itemBananas = "Bananas";
+        cakeIngredientsArray = new String[]{this.itemBananas, this.itemButta, this.itemFlour, this.itemSugar};
+    }
+
+    public String[] getCakeIngredientsArray() {
+        return cakeIngredientsArray;
     }
  
     public String getItemFlour() {

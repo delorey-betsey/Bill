@@ -12,12 +12,18 @@ public class PartySupplies implements Serializable{
     private String itemSpumoni;
     private String itemGrimReaper;
     private String itemPlasticFork;
+    private String[] partySuppliesArray;
 
     public PartySupplies() {
         itemWhoopie = "Whoopie Cushion";
         itemSpumoni = "Spumoni";
         itemGrimReaper = "Grim Reaper";
         itemPlasticFork = "Plastic Fork";
+        partySuppliesArray = new String[]{this.itemGrimReaper,this.itemPlasticFork,this.itemSpumoni,this.itemWhoopie};
+    }
+
+    public String[] getPartySuppliesArray() {
+        return partySuppliesArray;
     }
 
     public String getItemWhoopie() {

@@ -200,7 +200,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         }
         
         public void display03() {
@@ -234,7 +234,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         } 
         
         public void display05() {
@@ -268,7 +268,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         }        
             
         public void display07() {
@@ -303,7 +303,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         }     
 
         public void display09() {
@@ -321,7 +321,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         }  
         
         public void display10() {
@@ -374,7 +374,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         }  
         
         public void display13() {
@@ -392,7 +392,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         }  
         
         public void display14() {
@@ -426,7 +426,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         } 
        
         public void display16() {
@@ -509,7 +509,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         }  
         
         public void display21() {
@@ -525,7 +525,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         }  
         
         public void display22() {
@@ -575,7 +575,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         }  
         
         public void display25() {
@@ -592,7 +592,7 @@ class LocationMenuView {
         + "\nCross item off my list!");  
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
-            crossOffItemMenuView.displayMenu(); 
+            crossOffItemMenuView.display(); 
         } 
 
 
