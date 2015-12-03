@@ -6,7 +6,6 @@
 package byui.cit260.youGotNoCake.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
@@ -20,6 +19,10 @@ public class SleepAids implements Serializable{
     private String itemWarmMilk;
 
     public SleepAids() {
+        itemApneaFairy = "Apnea Fairy";
+        itemTranquilDart = "Tranquilizer Dart";
+        itemTaxCode = "Tax Code";
+        itemWarmMilk = "Warm Milk";
     }
     
         public String getItemApneaFairy() {
@@ -53,47 +56,44 @@ public class SleepAids implements Serializable{
     public void setItemWarmMilk(String itemWarmMilk) {
         this.itemWarmMilk = itemWarmMilk;
     }
-
-    @Override
-    public String toString() {
-        return "SleepAids{" + "itemApneaFairy=" + itemApneaFairy + ", itemTranquilDart=" + itemTranquilDart + ", itemTaxCode=" + itemTaxCode + ", itemWarmMilk=" + itemWarmMilk + '}';
-    }
-
-    
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 41 * hash + Objects.hashCode(this.itemApneaFairy);
-        hash = 41 * hash + Objects.hashCode(this.itemTranquilDart);
-        hash = 41 * hash + Objects.hashCode(this.itemTaxCode);
-        hash = 41 * hash + Objects.hashCode(this.itemWarmMilk);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final SleepAids other = (SleepAids) obj;
-        if (!Objects.equals(this.itemApneaFairy, other.itemApneaFairy)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemTranquilDart, other.itemTranquilDart)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemTaxCode, other.itemTaxCode)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemWarmMilk, other.itemWarmMilk)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
-    
 }
+//    @Override
+//    public String toString() {
+//        return "SleepAids{" + "itemApneaFairy=" + itemApneaFairy + ", itemTranquilDart=" + itemTranquilDart + ", itemTaxCode=" + itemTaxCode + ", itemWarmMilk=" + itemWarmMilk + '}';
+//    }
+//
+//    
+//    @Override
+//    public int hashCode() {
+//        int hash = 3;
+//        hash = 41 * hash + Objects.hashCode(this.itemApneaFairy);
+//        hash = 41 * hash + Objects.hashCode(this.itemTranquilDart);
+//        hash = 41 * hash + Objects.hashCode(this.itemTaxCode);
+//        hash = 41 * hash + Objects.hashCode(this.itemWarmMilk);
+//        return hash;
+//    }
+//
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//            return false;
+//        }
+//        final SleepAids other = (SleepAids) obj;
+//        if (!Objects.equals(this.itemApneaFairy, other.itemApneaFairy)) {
+//            return false;
+//        }
+//        if (!Objects.equals(this.itemTranquilDart, other.itemTranquilDart)) {
+//            return false;
+//        }
+//        if (!Objects.equals(this.itemTaxCode, other.itemTaxCode)) {
+//            return false;
+//        }
+//        if (!Objects.equals(this.itemWarmMilk, other.itemWarmMilk)) {
+//            return false;
+//        }
+//        return true;
+//    }
+
