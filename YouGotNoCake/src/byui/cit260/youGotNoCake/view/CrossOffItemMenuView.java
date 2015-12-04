@@ -57,7 +57,7 @@ public class CrossOffItemMenuView extends View {
                 break;
             case 'E': //exit the program
                 LocationMenuView locationMenu = new LocationMenuView(pickUpPlayer);
-                locationMenu.displayLocationMenu(); 
+                locationMenu.display(); 
                 break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again.");
@@ -83,6 +83,7 @@ public class CrossOffItemMenuView extends View {
         //for each Sleep Aids list item
         for (String saItem : salist) {
             //display the description and the found flag
+
             System.out.println(saItem);
         }
     }

@@ -52,7 +52,7 @@ public class MainMenuView extends View {
                 this.saveGame();
                 break;
             case 'E': //exit the program
-                return false;
+                System.exit(0);
             default:
                 System.out.println("Invalid selection - must be one valid letter.");
         }
@@ -63,7 +63,7 @@ public class MainMenuView extends View {
         //display Help menu
 
         LocationMenuView locationMenu = new LocationMenuView(mmvPlayer);
-        locationMenu.displayLocationMenu();
+        locationMenu.display();
     }
     
     private void startExistingGame() {

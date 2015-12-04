@@ -2,10 +2,12 @@ package byui.cit260.youGotNoCake.view;
 import byui.cit260.youGotNoCake.model.Player;
 import java.util.Scanner;
  
-class LocationMenuView {
+class LocationMenuView extends View{
 //receive player choice and display location text
     private Player locationPlayer;
-    private final String LOCATION = "\n"
+    
+    public LocationMenuView(){ 
+        super ("\n"
         +"-----------------------------------------------------------------------"
         +"\n          Location Menu"
         +"\n-----------------------------------------------------------------------"
@@ -19,28 +21,44 @@ class LocationMenuView {
         +"\n          22-Motel 6          23-Dr. Roots      24-Police Station"
         +"\n          25-BYUI Computer Lab"
         +"\n\n        E-Exit"
-        +"\n-----------------------------------------------------------------------";
-
-    public LocationMenuView(Player player) {
+        +"\n-----------------------------------------------------------------------");
+    }
+    
+     public LocationMenuView(Player player){ 
+        super ("\n"
+        +"-----------------------------------------------------------------------"
+        +"\n          Location Menu"
+        +"\n-----------------------------------------------------------------------"
+        +"\n          1-Barbershop        8-Albertson's     15-Florist"
+        +"\n          2-Your Backyard     9-Filling Station 16-Grandma's House"
+        +"\n          3-Friend's House    10-Manhole        17-Creepy Guy's House"
+        +"\n          4-Your Frontyard    11-Treehouse      18-Library"
+        +"\n          5-Museum            12-Outhouse       19-Skate Park"
+        +"\n          6-Garage            13-Playground     20-Dark Alley"
+        +"\n          7-Soviet Bakeshop   14-Skool          21-Dollar Theatre"	
+        +"\n          22-Motel 6          23-Dr. Roots      24-Police Station"
+        +"\n          25-BYUI Computer Lab"
+        +"\n\n        E-Exit"
+        +"\n-----------------------------------------------------------------------");
         this.locationPlayer = player;
     }
     
-    public void displayLocationMenu() {
-    
-        char selection = ' ';
-        
-        int location = 0;
-        
-        do {
-            System.out.println(LOCATION);  //display the location menu
-            
-            String input = this.getInput();   //get the user's selection
-            selection = input.charAt(0);  //get first character of string
-        
-        }   //while the selection is not Exit we do the loop otherwise
-            //we fall through back to Main Menu
-            while (selection != 'E');  
-    }
+//    public void displayLocationMenu() {
+//    
+//        char selection = ' ';
+//        
+//        int location = 0;
+//        
+//        do {
+//            System.out.println(LOCATION);  //display the location menu
+//            
+//            String input = this.getInput();   //get the user's selection
+//            selection = input.charAt(0);  //get first character of string
+//        
+//        }   //while the selection is not Exit we do the loop otherwise
+//            //we fall through back to Main Menu
+//            while (selection != 'E');  
+//    }
     
     private static boolean isInteger(String s) {
         try { 
@@ -52,7 +70,8 @@ class LocationMenuView {
         return true;
     }
     
-    private String getInput() {
+    @Override
+    public String getInput() {
 
             boolean valid = false;    //indicates if the choice has been retrieved
             String selection = null;
@@ -598,6 +617,18 @@ class LocationMenuView {
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
             crossOffItemMenuView.display(); 
         } 
+
+    @Override
+    public boolean doAction(Object obj) {
+        String action = (String) obj;
+        if (action.equalsIgnoreCase("E")) {
+            MainMenuView mainMenuView = new MainMenuView(locationPlayer);
+            mainMenuView.display();
+        }
+        return false;
+    }
+    
+   
 
 
     }
