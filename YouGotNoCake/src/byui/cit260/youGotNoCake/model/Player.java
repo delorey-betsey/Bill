@@ -23,7 +23,34 @@ public class Player implements Serializable{
     private ArrayList<String> foundSleepAids;
 
     public Player() {
+        foundCakeIngredients = new ArrayList<String>();
+        foundPartySupplies = new ArrayList<String>();
+        foundSleepAids = new ArrayList<String>();
     }  
+
+    public ArrayList<String> getFoundCakeIngredients() {
+        return foundCakeIngredients;
+    }
+
+    public void setFoundCakeIngredients(ArrayList<String> foundCakeIngredients) {
+        this.foundCakeIngredients = foundCakeIngredients;
+    }
+
+    public ArrayList<String> getFoundPartySupplies() {
+        return foundPartySupplies;
+    }
+
+    public void setFoundPartySupplies(ArrayList<String> foundPartySupplies) {
+        this.foundPartySupplies = foundPartySupplies;
+    }
+
+    public ArrayList<String> getFoundSleepAids() {
+        return foundSleepAids;
+    }
+
+    public void setFoundSleepAids(ArrayList<String> foundSleepAids) {
+        this.foundSleepAids = foundSleepAids;
+    }
     
     public String getName() {
         return name;

@@ -78,13 +78,23 @@ public class CrossOffItemMenuView extends View {
         String[] salist = new SleepAids().getSleepAidsArray();
 
         System.out.println("\nList of Sleep Aids -- Item Status");
-        System.out.println("Description" + "\t" + "Found");
+        System.out.println("Description" + "\t\t" + "Found");
 
         //for each Sleep Aids list item
+        int counter = 0;
         for (String saItem : salist) {
             //display the description and the found flag
-
-            System.out.println(saItem);
+            System.out.print(saItem +"\t\t");
+            
+            //use counter to make sure we dont get array-out-of-bounds error
+            //when trying to print a list with fewer items than the reference list
+            if (counter < pickUpPlayer.getFoundSleepAids().size()) { 
+                System.out.print(pickUpPlayer.getFoundSleepAids().get(counter) + "\n");  
+            } else {
+                System.out.print("\n");
+            }
+            
+            counter++;
         }
     }
 

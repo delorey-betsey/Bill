@@ -18,6 +18,7 @@ public class Backyard implements Serializable {
     public Backyard(Player player) {
         this.mmvPlayer = player;
         this.locationID = 2;
+        this.foundItem = "Tranquilizer Dart";
     }
     
     public int getLocationID() {
@@ -28,6 +29,25 @@ public class Backyard implements Serializable {
         this.locationID = locationID;
     }
 
+    public Player pickupItem() {
+        for (String cakeIngredient : new CakeIngredients().getCakeIngredientsArray()) {
+            if (cakeIngredient.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundCakeIngredients().add(foundItem);
+            }
+        }
+        for (String partySupply : new PartySupplies().getPartySuppliesArray()) {
+            if (partySupply.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundPartySupplies().add(foundItem);
+            }
+        }
+        for (String sleepAid : new SleepAids().getSleepAidsArray()) {
+            if (sleepAid.equals(foundItem)) {
+                mmvPlayer.getFoundSleepAids().add(foundItem);
+            }
+        }
+        return mmvPlayer;
+    }
+            
     @Override
     public int hashCode() {
         int hash = 3;

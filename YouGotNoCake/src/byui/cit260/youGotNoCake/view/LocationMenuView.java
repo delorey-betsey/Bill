@@ -1,4 +1,5 @@
 package byui.cit260.youGotNoCake.view;
+import byui.cit260.youGotNoCake.model.Backyard;
 import byui.cit260.youGotNoCake.model.Player;
 import java.util.Scanner;
  
@@ -210,6 +211,8 @@ class LocationMenuView extends View{
         
         public void display02() {
         //Your Backyard
+        Backyard backyard = new Backyard(locationPlayer);
+        locationPlayer = backyard.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
