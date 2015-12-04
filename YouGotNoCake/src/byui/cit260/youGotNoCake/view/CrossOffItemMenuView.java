@@ -2,11 +2,13 @@ package byui.cit260.youGotNoCake.view;
 
 import byui.cit260.youGotNoCake.model.CakeIngredients;
 import byui.cit260.youGotNoCake.model.PartySupplies;
+import byui.cit260.youGotNoCake.model.Player;
 import byui.cit260.youGotNoCake.model.SleepAids;
 
 public class CrossOffItemMenuView extends View {
 //receive player choice and perform list tasks
-
+    private Player pickUpPlayer;
+    
     public CrossOffItemMenuView() {
         super("\n"
                 + "-----------------------------------------------------------------------"
@@ -20,6 +22,21 @@ public class CrossOffItemMenuView extends View {
                 + "\n-----------------------------------------------------------------------");
     }
 
+    public CrossOffItemMenuView(Player player) {
+        super("\n"
+                + "-----------------------------------------------------------------------"
+                + "\n          List Menu"
+                + "\n-----------------------------------------------------------------------"
+                + "\n    F - Found!  Cross item off list."
+                + "\n    S - View Sleep Aids List"
+                + "\n    P - View Party Supplies List"
+                + "\n    C - View Cake Ingredients List"
+                + "\n\n  E-Exit"
+                + "\n-----------------------------------------------------------------------");
+    pickUpPlayer = player;
+   
+    }
+    
     @Override
     public boolean doAction(Object obj) {
         String value = (String) obj;
@@ -39,11 +56,17 @@ public class CrossOffItemMenuView extends View {
                 this.viewCIList();
                 break;
             case 'E': //exit the program
-                return false;
+                LocationMenuView locationMenu = new LocationMenuView(pickUpPlayer);
+                locationMenu.displayLocationMenu(); 
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again.");
         }
         return false;
+    }
+    
+    public void pickUp (){
+        
     }
 
     private void flipFoundFlag() {

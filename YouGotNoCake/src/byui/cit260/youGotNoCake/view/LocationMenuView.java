@@ -1,12 +1,10 @@
 package byui.cit260.youGotNoCake.view;
+import byui.cit260.youGotNoCake.model.Player;
 import java.util.Scanner;
-/**
- *
- * @author Betsey
- */
+ 
 class LocationMenuView {
 //receive player choice and display location text
-    
+    private Player locationPlayer;
     private final String LOCATION = "\n"
         +"-----------------------------------------------------------------------"
         +"\n          Location Menu"
@@ -23,6 +21,10 @@ class LocationMenuView {
         +"\n\n        E-Exit"
         +"\n-----------------------------------------------------------------------";
 
+    public LocationMenuView(Player player) {
+        this.locationPlayer = player;
+    }
+    
     public void displayLocationMenu() {
     
         char selection = ' ';
@@ -164,8 +166,9 @@ class LocationMenuView {
                 this.display25();
                 break;
             case 'E': //exit the program
-                MainMenuView mainMenu = new MainMenuView();
-                mainMenu.display();          
+                MainMenuView mainMenu = new MainMenuView(locationPlayer);
+                mainMenu.display();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again.");
         }
@@ -199,8 +202,9 @@ class LocationMenuView {
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
+            crossOffItemMenuView.pickUp();            
         }
         
         public void display03() {

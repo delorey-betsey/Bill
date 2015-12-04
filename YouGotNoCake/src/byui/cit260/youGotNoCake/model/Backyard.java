@@ -8,41 +8,30 @@ package byui.cit260.youGotNoCake.model;
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- *
- * @author Alyse
- */
 public class Backyard implements Serializable {
     
      //class-instance variables
-    private Number locationID;
-    private String licationText;
+    private Player mmvPlayer;
+    private int locationID;
+    private String foundItem;
 
-    public Backyard() {
+    public Backyard(Player player) {
+        this.mmvPlayer = player;
+        this.locationID = 2;
     }
-
     
-    public Number getLocationID() {
+    public int getLocationID() {
         return locationID;
     }
 
-    public void setLocationID(Number locationID) {
+    public void setLocationID(int locationID) {
         this.locationID = locationID;
-    }
-
-    public String getLicationText() {
-        return licationText;
-    }
-
-    public void setLicationText(String licationText) {
-        this.licationText = licationText;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
         hash = 73 * hash + Objects.hashCode(this.locationID);
-        hash = 73 * hash + Objects.hashCode(this.licationText);
         return hash;
     }
 
@@ -55,19 +44,12 @@ public class Backyard implements Serializable {
             return false;
         }
         final Backyard other = (Backyard) obj;
-        if (!Objects.equals(this.locationID, other.locationID)) {
-            return false;
-        }
-        if (!Objects.equals(this.licationText, other.licationText)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Backyard{" + "locationID=" + locationID + ", licationText=" + licationText + '}';
+        return "Backyard{" + "mmvPlayer=" + mmvPlayer + ", locationID=" + locationID + ", foundItem=" + foundItem + '}';
     }
-    
     
 }

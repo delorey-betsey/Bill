@@ -18,9 +18,9 @@ public class Player implements Serializable{
     private String name;
     private Number gameID;
     private String gameStatus;
-    private ArrayList<String> playerCakeIngredients;
-    private ArrayList<String> playerPartySupplies;
-    private ArrayList<String> playerSleepAids;
+    private ArrayList<String> foundCakeIngredients;
+    private ArrayList<String> foundPartySupplies;
+    private ArrayList<String> foundSleepAids;
 
     public Player() {
     }  
