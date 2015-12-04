@@ -79,7 +79,8 @@ public class CrossOffItemMenuView extends View {
 
         System.out.println("\nList of Sleep Aids -- Item Status");
         System.out.println("Description" + "\t\t" + "Found");
-
+        System.out.println();
+        
         //for each Sleep Aids list item
         int counter = 0;
         for (String saItem : salist) {
@@ -103,12 +104,24 @@ public class CrossOffItemMenuView extends View {
         String[] pslist = new PartySupplies().getPartySuppliesArray();
 
         System.out.println("\nList of Party Supplies -- Item Status");
-        System.out.println("Description" + "\t" + "Found");
-
+        System.out.println("Description" + "\t\t" + "Found");
+        System.out.println();
+        
         //for each Party Supply list item
+        int counter = 0;
         for (String psItem : pslist) {
             //display the description and the found flag
-            System.out.println(psItem + "\t   ");
+            System.out.print(psItem + "\t\t");
+            
+            //use counter to make sure we dont get array-out-of-bounds error
+            //when trying to print a list with fewer items than the reference list
+            if (counter < pickUpPlayer.getFoundPartySupplies().size()) { 
+                System.out.print(pickUpPlayer.getFoundPartySupplies().get(counter) + "\n");  
+            } else {
+                System.out.print(""+"\n");
+            }
+            
+            counter++;
         }
     }
     
@@ -119,13 +132,24 @@ public class CrossOffItemMenuView extends View {
         String[] cilist = new CakeIngredients().getCakeIngredientsArray();
 
         System.out.println("\nList of Cake Ingredients -- Item Status");
-        System.out.println("Description" + "\t" + "Found");
-
+        System.out.println("Description" + "\t\t" + "Found");
+        System.out.println();
+        
         //for each Cake Ingredients list item
+        int counter = 0;
         for (String ciItem : cilist) {
             //display the description and the found flag
-            System.out.println(ciItem + "\t   ");
-
+            System.out.print(ciItem + "\t\t");
+            
+            //use counter to make sure we dont get array-out-of-bounds error
+            //when trying to print a list with fewer items than the reference list
+            if (counter < pickUpPlayer.getFoundCakeIngredients().size()) { 
+                System.out.print(pickUpPlayer.getFoundCakeIngredients().get(counter) + "\n");  
+            } else {
+                System.out.print("\n");
+            }
+            
+            counter++;
         
     
         }
