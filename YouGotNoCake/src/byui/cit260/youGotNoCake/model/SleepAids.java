@@ -1,16 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.youGotNoCake.model;
 
 import java.io.Serializable;
 
-/**
- *
- * @author Betsey
- */
 public class SleepAids implements Serializable{
     //class-instance variables
     private String itemApneaFairy;
@@ -31,8 +22,8 @@ public class SleepAids implements Serializable{
         return sleepAidsArray;
     }
     
-        public String getItemApneaFairy() {
-        return itemApneaFairy;
+    public String getItemApneaFairy() {
+    return itemApneaFairy;
     }
 
     public void setItemApneaFairy(String itemApneaFairy) {

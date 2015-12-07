@@ -1,59 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.youGotNoCake.model;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- *
- * @author Alyse
- */
-public class BYUILab implements Serializable{
+public class BYUILab implements Serializable {
     
-    //class instance variables
-    private Number locationID;
-    private String locationText;
-    private String itemGrimReaper;
+     //class-instance variables
+    private Player mmvPlayer;
+    private int locationID;
+    private String foundItem;
 
-    public BYUILab() {
+    public BYUILab(Player player) {
+        this.mmvPlayer = player;
+        this.locationID = 25;
+        this.foundItem = "Grim Reaper";
     }
-
     
-    
-    public Number getLocationID() {
+    public int getLocationID() {
         return locationID;
     }
 
-    public void setLocationID(Number locationID) {
+    public void setLocationID(int locationID) {
         this.locationID = locationID;
     }
 
-    public String getLocationText() {
-        return locationText;
+    public Player pickupItem() {
+        for (String cakeIngredient : new CakeIngredients().getCakeIngredientsArray()) {
+            if (cakeIngredient.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundCakeIngredients().add(foundItem);
+            }
+        }
+        for (String partySupply : new PartySupplies().getPartySuppliesArray()) {
+            if (partySupply.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundPartySupplies().add(foundItem);
+            }
+        }
+        for (String sleepAid : new SleepAids().getSleepAidsArray()) {
+            if (sleepAid.equals(foundItem)) {
+                mmvPlayer.getFoundSleepAids().add(foundItem);
+            }
+        }
+        return mmvPlayer;
     }
-
-    public void setLocationText(String locationText) {
-        this.locationText = locationText;
-    }
-
-    public String getItemGrimReaper() {
-        return itemGrimReaper;
-    }
-
-    public void setItemGrimReaper(String itemGrimReaper) {
-        this.itemGrimReaper = itemGrimReaper;
-    }
-
+            
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + Objects.hashCode(this.locationID);
-        hash = 41 * hash + Objects.hashCode(this.locationText);
-        hash = 41 * hash + Objects.hashCode(this.itemGrimReaper);
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.locationID);
         return hash;
     }
 
@@ -66,23 +59,12 @@ public class BYUILab implements Serializable{
             return false;
         }
         final BYUILab other = (BYUILab) obj;
-        if (!Objects.equals(this.locationID, other.locationID)) {
-            return false;
-        }
-        if (!Objects.equals(this.locationText, other.locationText)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemGrimReaper, other.itemGrimReaper)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "BYUILab{" + "locationID=" + locationID + ", locationText=" + locationText + ", itemGrimReaper=" + itemGrimReaper + '}';
+        return "BYUILab{" + "mmvPlayer=" + mmvPlayer + ", locationID=" + locationID + ", foundItem=" + foundItem + '}';
     }
-    
-    
     
 }

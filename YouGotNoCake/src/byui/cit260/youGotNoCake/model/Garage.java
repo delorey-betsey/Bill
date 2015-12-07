@@ -1,56 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.youGotNoCake.model;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- *
- * @author Alyse
- */
-public class Garage implements Serializable{
-    //class-instance variables
-    private Number locationID;
-    private String locationText;
-    private String itemApneaFairy;
+public class Garage implements Serializable {
+    
+     //class-instance variables
+    private Player mmvPlayer;
+    private int locationID;
+    private String foundItem;
 
-    public Garage() {
+    public Garage(Player player) {
+        this.mmvPlayer = player;
+        this.locationID = 6;
+        this.foundItem = "Apnea Fairy";
     }
-
-    public Number getLocationID() {
+    
+    public int getLocationID() {
         return locationID;
     }
 
-    public void setLocationID(Number locationID) {
+    public void setLocationID(int locationID) {
         this.locationID = locationID;
     }
 
-    public String getLocationText() {
-        return locationText;
+    public Player pickupItem() {
+        for (String cakeIngredient : new CakeIngredients().getCakeIngredientsArray()) {
+            if (cakeIngredient.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundCakeIngredients().add(foundItem);
+            }
+        }
+        for (String partySupply : new PartySupplies().getPartySuppliesArray()) {
+            if (partySupply.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundPartySupplies().add(foundItem);
+            }
+        }
+        for (String sleepAid : new SleepAids().getSleepAidsArray()) {
+            if (sleepAid.equals(foundItem)) {
+                mmvPlayer.getFoundSleepAids().add(foundItem);
+            }
+        }
+        return mmvPlayer;
     }
-
-    public void setLocationText(String locationText) {
-        this.locationText = locationText;
-    }
-
-    public String getItemApneaFairy() {
-        return itemApneaFairy;
-    }
-
-    public void setItemApneaFairy(String itemApneaFairy) {
-        this.itemApneaFairy = itemApneaFairy;
-    }
-
+            
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 29 * hash + Objects.hashCode(this.locationID);
-        hash = 29 * hash + Objects.hashCode(this.locationText);
-        hash = 29 * hash + Objects.hashCode(this.itemApneaFairy);
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.locationID);
         return hash;
     }
 
@@ -63,22 +59,12 @@ public class Garage implements Serializable{
             return false;
         }
         final Garage other = (Garage) obj;
-        if (!Objects.equals(this.locationID, other.locationID)) {
-            return false;
-        }
-        if (!Objects.equals(this.locationText, other.locationText)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemApneaFairy, other.itemApneaFairy)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Garage{" + "locationID=" + locationID + ", locationText=" + locationText + ", itemApneaFairy=" + itemApneaFairy + '}';
+        return "Garage{" + "mmvPlayer=" + mmvPlayer + ", locationID=" + locationID + ", foundItem=" + foundItem + '}';
     }
-    
     
 }

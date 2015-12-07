@@ -1,58 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.youGotNoCake.model;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- *
- * @author Alyse
- */
-public class DarkAlley implements Serializable{
+public class DarkAlley implements Serializable {
     
-    //class-instance variables
-    private Number locationId;
-    private String locationText;
-    private String itemTaxCode;
+     //class-instance variables
+    private Player mmvPlayer;
+    private int locationID;
+    private String foundItem;
 
-    public DarkAlley() {
+    public DarkAlley(Player player) {
+        this.mmvPlayer = player;
+        this.locationID = 20;
+        this.foundItem = "Tax Code";
     }
-
     
-    public Number getLocationId() {
-        return locationId;
+    public int getLocationID() {
+        return locationID;
     }
 
-    public void setLocationId(Number locationId) {
-        this.locationId = locationId;
+    public void setLocationID(int locationID) {
+        this.locationID = locationID;
     }
 
-    public String getLocationText() {
-        return locationText;
+    public Player pickupItem() {
+        for (String cakeIngredient : new CakeIngredients().getCakeIngredientsArray()) {
+            if (cakeIngredient.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundCakeIngredients().add(foundItem);
+            }
+        }
+        for (String partySupply : new PartySupplies().getPartySuppliesArray()) {
+            if (partySupply.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundPartySupplies().add(foundItem);
+            }
+        }
+        for (String sleepAid : new SleepAids().getSleepAidsArray()) {
+            if (sleepAid.equals(foundItem)) {
+                mmvPlayer.getFoundSleepAids().add(foundItem);
+            }
+        }
+        return mmvPlayer;
     }
-
-    public void setLocationText(String locationText) {
-        this.locationText = locationText;
-    }
-
-    public String getItemTaxCode() {
-        return itemTaxCode;
-    }
-
-    public void setItemTaxCode(String itemTaxCode) {
-        this.itemTaxCode = itemTaxCode;
-    }
-
+            
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.locationId);
-        hash = 47 * hash + Objects.hashCode(this.locationText);
-        hash = 47 * hash + Objects.hashCode(this.itemTaxCode);
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.locationID);
         return hash;
     }
 
@@ -65,22 +59,12 @@ public class DarkAlley implements Serializable{
             return false;
         }
         final DarkAlley other = (DarkAlley) obj;
-        if (!Objects.equals(this.locationId, other.locationId)) {
-            return false;
-        }
-        if (!Objects.equals(this.locationText, other.locationText)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemTaxCode, other.itemTaxCode)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "DarkAlley{" + "locationId=" + locationId + ", locationText=" + locationText + ", itemTaxCode=" + itemTaxCode + '}';
+        return "DarkAlley{" + "mmvPlayer=" + mmvPlayer + ", locationID=" + locationID + ", foundItem=" + foundItem + '}';
     }
-            
     
 }

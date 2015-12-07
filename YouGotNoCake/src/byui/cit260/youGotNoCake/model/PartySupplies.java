@@ -2,10 +2,6 @@ package byui.cit260.youGotNoCake.model;
 
 import java.io.Serializable;
 
-/**
- *
- * @author Betsey
- */
 public class PartySupplies implements Serializable{
     //class-instance variables
     private String itemWhoopie;

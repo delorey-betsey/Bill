@@ -1,57 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.youGotNoCake.model;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- *
- * @author Alyse
- */
-public class Florist implements Serializable{
-    //class-instance variables
-    private Number locationID;
-    private String locationText;
-    private String itemFlour;
-
-    public Florist() {
-    }
-
+public class Florist implements Serializable {
     
-    public Number getLocationID() {
+     //class-instance variables
+    private Player mmvPlayer;
+    private int locationID;
+    private String foundItem;
+
+    public Florist(Player player) {
+        this.mmvPlayer = player;
+        this.locationID = 15;
+        this.foundItem = "Flour";
+    }
+    
+    public int getLocationID() {
         return locationID;
     }
 
-    public void setLocationID(Number locationID) {
+    public void setLocationID(int locationID) {
         this.locationID = locationID;
     }
 
-    public String getLocationText() {
-        return locationText;
+    public Player pickupItem() {
+        for (String cakeIngredient : new CakeIngredients().getCakeIngredientsArray()) {
+            if (cakeIngredient.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundCakeIngredients().add(foundItem);
+            }
+        }
+        for (String partySupply : new PartySupplies().getPartySuppliesArray()) {
+            if (partySupply.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundPartySupplies().add(foundItem);
+            }
+        }
+        for (String sleepAid : new SleepAids().getSleepAidsArray()) {
+            if (sleepAid.equals(foundItem)) {
+                mmvPlayer.getFoundSleepAids().add(foundItem);
+            }
+        }
+        return mmvPlayer;
     }
-
-    public void setLocationText(String locationText) {
-        this.locationText = locationText;
-    }
-
-    public String getItemFlour() {
-        return itemFlour;
-    }
-
-    public void setItemFlour(String itemFlour) {
-        this.itemFlour = itemFlour;
-    }
-
+            
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.locationID);
-        hash = 79 * hash + Objects.hashCode(this.locationText);
-        hash = 79 * hash + Objects.hashCode(this.itemFlour);
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.locationID);
         return hash;
     }
 
@@ -64,22 +59,12 @@ public class Florist implements Serializable{
             return false;
         }
         final Florist other = (Florist) obj;
-        if (!Objects.equals(this.locationID, other.locationID)) {
-            return false;
-        }
-        if (!Objects.equals(this.locationText, other.locationText)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemFlour, other.itemFlour)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Florist{" + "locationID=" + locationID + ", locationText=" + locationText + ", itemFlour=" + itemFlour + '}';
+        return "Florist{" + "mmvPlayer=" + mmvPlayer + ", locationID=" + locationID + ", foundItem=" + foundItem + '}';
     }
-    
     
 }
