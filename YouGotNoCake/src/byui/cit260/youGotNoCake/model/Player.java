@@ -8,6 +8,7 @@ package byui.cit260.youGotNoCake.model;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  *
@@ -28,6 +29,16 @@ public class Player implements Serializable{
         foundSleepAids = new ArrayList<String>();
     }  
 
+    public ArrayList<String> sortPlayerItems (ArrayList<String> itemsToSort) {
+        itemsToSort.sort(new Comparator<String>(){
+            @Override
+            public int compare(String s1, String s2) {
+                return s1.compareToIgnoreCase(s2);
+            }
+        });
+        return itemsToSort;
+    }
+    
     public ArrayList<String> getFoundCakeIngredients() {
         return foundCakeIngredients;
     }

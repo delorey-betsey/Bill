@@ -81,6 +81,8 @@ public class CrossOffItemMenuView extends View {
         System.out.println("Description" + "\t\t" + "Found");
         System.out.println();
         
+        // sort ArrayList before processing
+        pickUpPlayer.sortPlayerItems(pickUpPlayer.getFoundSleepAids());
         //for each Sleep Aids list item
         int counter = 0;
         for (String saItem : salist) {
@@ -107,6 +109,8 @@ public class CrossOffItemMenuView extends View {
         System.out.println("Description" + "\t\t" + "Found");
         System.out.println();
         
+        //sort ArrayList before processing
+        pickUpPlayer.sortPlayerItems(pickUpPlayer.getFoundPartySupplies());
         //for each Party Supply list item
         int counter = 0;
         for (String psItem : pslist) {
@@ -135,6 +139,8 @@ public class CrossOffItemMenuView extends View {
         System.out.println("Description" + "\t\t" + "Found");
         System.out.println();
         
+        //sort the list before displaying
+        pickUpPlayer.sortPlayerItems(pickUpPlayer.getFoundCakeIngredients());
         //for each Cake Ingredients list item
         int counter = 0;
         for (String ciItem : cilist) {

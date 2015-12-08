@@ -1,14 +1,15 @@
 
 package yougotnocake;
 
+import byui.cit260.youGotNoCake.control.GameControl;
 import byui.cit260.youGotNoCake.view.StartProgramView;
 
 public class YouGotNoCake {
     public static void main(String[] args){
         
         //create Start ProgramView and start the program
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.startProgram();
+        GameControl gameControl = new GameControl();
+        gameControl.displayGameMenu();
         }
  }   
     
