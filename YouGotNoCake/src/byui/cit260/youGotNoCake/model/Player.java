@@ -3,6 +3,7 @@ package byui.cit260.youGotNoCake.model;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 public class Player implements Serializable{ 
@@ -21,13 +22,22 @@ public class Player implements Serializable{
     }  
 
     public ArrayList<String> sortPlayerItems (ArrayList<String> itemsToSort) {
-        itemsToSort.sort(new Comparator<String>(){
+        itemsToSort.sort( new Comparator<String>(){
             @Override
             public int compare(String s1, String s2) {
                 return s1.compareToIgnoreCase(s2);
             }
         });
+        
         return itemsToSort;
+    }
+    
+    public boolean hasItem(String item) {
+        boolean hasItem = false;
+        if (foundCakeIngredients.contains(item) || foundPartySupplies.contains(item) || foundSleepAids.contains(item)) {
+            hasItem = true;
+        }
+        return hasItem;
     }
     
     public ArrayList<String> getFoundCakeIngredients() {

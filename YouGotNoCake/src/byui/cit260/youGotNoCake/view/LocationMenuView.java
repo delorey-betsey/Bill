@@ -1,4 +1,5 @@
 package byui.cit260.youGotNoCake.view;
+import byui.cit260.youGotNoCake.control.WinControl;
 import byui.cit260.youGotNoCake.model.Albertsons;
 import byui.cit260.youGotNoCake.model.BYUILab;
 import byui.cit260.youGotNoCake.model.Backyard;
@@ -207,6 +208,8 @@ class LocationMenuView extends View{
         //Your Backyard
         Backyard backyard = new Backyard(locationPlayer);
         locationPlayer = backyard.pickupItem();
+        WinControl winController = new WinControl(locationPlayer);
+        winController.checkForWin();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -220,7 +223,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+                 
         }
         
         public void display03() {
@@ -257,7 +260,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+                     
         }
         
         public void display05() {
@@ -294,7 +297,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+          
         }        
             
         public void display07() {
@@ -332,7 +335,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+                   
         }     
 
         public void display09() {
@@ -353,7 +356,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+                     
         }
         
         public void display10() {
@@ -409,7 +412,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+                       
         }  
         
         public void display13() {
@@ -430,7 +433,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+                    
         }  
         
         public void display14() {
@@ -467,7 +470,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+                       
         }
        
         public void display16() {
@@ -553,7 +556,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+              
         } 
         
         public void display21() {
@@ -572,7 +575,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+               
         }  
         
         public void display22() {
@@ -625,7 +628,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+                      
         }  
         
         public void display25() {
@@ -645,7 +648,7 @@ class LocationMenuView extends View{
 
             CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-            crossOffItemMenuView.pickUp();            
+                 
         } 
 
     @Override

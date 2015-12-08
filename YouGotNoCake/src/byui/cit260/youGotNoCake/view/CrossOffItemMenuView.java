@@ -66,10 +66,6 @@ public class CrossOffItemMenuView extends View {
         return false;
     }
     
-    public void pickUp (){
-        
-    }
-
     private void viewSAList() {
         //get the sorted list of Sleep Aid items for the current game
         String[] salist = new SleepAids().getSleepAidsArray();
