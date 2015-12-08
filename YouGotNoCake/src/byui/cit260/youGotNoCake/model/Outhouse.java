@@ -1,56 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package byui.cit260.youGotNoCake.model;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- *
- * @author Alyse
- */
-public class Outhouse implements Serializable{
-    //class-instance variables
-    private Number locationID;
-    private String locationText;
-    private String itemWhoopie;
+public class Outhouse implements Serializable {
+    
+     //class-instance variables
+    private Player mmvPlayer;
+    private int locationID;
+    private String foundItem;
 
-    public Outhouse() {
+    public Outhouse(Player player) {
+        this.mmvPlayer = player;
+        this.locationID = 12;
+        this.foundItem = "Whoopie Cushion";
     }
-
-    public Number getLocationID() {
+    
+    public int getLocationID() {
         return locationID;
     }
 
-    public void setLocationID(Number locationID) {
+    public void setLocationID(int locationID) {
         this.locationID = locationID;
     }
 
-    public String getLocationText() {
-        return locationText;
+    public Player pickupItem() {
+        for (String cakeIngredient : new CakeIngredients().getCakeIngredientsArray()) {
+            if (cakeIngredient.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundCakeIngredients().add(foundItem);
+            }
+        }
+        for (String partySupply : new PartySupplies().getPartySuppliesArray()) {
+            if (partySupply.equalsIgnoreCase(foundItem)) {
+                mmvPlayer.getFoundPartySupplies().add(foundItem);
+            }
+        }
+        for (String sleepAid : new SleepAids().getSleepAidsArray()) {
+            if (sleepAid.equals(foundItem)) {
+                mmvPlayer.getFoundSleepAids().add(foundItem);
+            }
+        }
+        return mmvPlayer;
     }
-
-    public void setLocationText(String locationText) {
-        this.locationText = locationText;
-    }
-
-    public String getItemWhoopie() {
-        return itemWhoopie;
-    }
-
-    public void setItemWhoopie(String itemWhoopie) {
-        this.itemWhoopie = itemWhoopie;
-    }
-
+            
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.locationID);
-        hash = 67 * hash + Objects.hashCode(this.locationText);
-        hash = 67 * hash + Objects.hashCode(this.itemWhoopie);
+        int hash = 3;
+        hash = 73 * hash + Objects.hashCode(this.locationID);
         return hash;
     }
 
@@ -63,22 +59,12 @@ public class Outhouse implements Serializable{
             return false;
         }
         final Outhouse other = (Outhouse) obj;
-        if (!Objects.equals(this.locationID, other.locationID)) {
-            return false;
-        }
-        if (!Objects.equals(this.locationText, other.locationText)) {
-            return false;
-        }
-        if (!Objects.equals(this.itemWhoopie, other.itemWhoopie)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Outhouse{" + "locationID=" + locationID + ", locationText=" + locationText + ", itemWhoopie=" + itemWhoopie + '}';
+        return "Outhouse{" + "mmvPlayer=" + mmvPlayer + ", locationID=" + locationID + ", foundItem=" + foundItem + '}';
     }
-    
     
 }

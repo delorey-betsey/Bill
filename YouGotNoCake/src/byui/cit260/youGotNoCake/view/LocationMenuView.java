@@ -1,6 +1,17 @@
 package byui.cit260.youGotNoCake.view;
+import byui.cit260.youGotNoCake.model.Albertsons;
+import byui.cit260.youGotNoCake.model.BYUILab;
 import byui.cit260.youGotNoCake.model.Backyard;
+import byui.cit260.youGotNoCake.model.DarkAlley;
+import byui.cit260.youGotNoCake.model.DollarTheater;
+import byui.cit260.youGotNoCake.model.FillingStation;
+import byui.cit260.youGotNoCake.model.Florist;
+import byui.cit260.youGotNoCake.model.Frontyard;
+import byui.cit260.youGotNoCake.model.Garage;
+import byui.cit260.youGotNoCake.model.Outhouse;
 import byui.cit260.youGotNoCake.model.Player;
+import byui.cit260.youGotNoCake.model.Playground;
+import byui.cit260.youGotNoCake.model.PoliceStation;
 import java.util.Scanner;
  
 class LocationMenuView extends View{
@@ -43,24 +54,7 @@ class LocationMenuView extends View{
         +"\n-----------------------------------------------------------------------");
         this.locationPlayer = player;
     }
-    
-//    public void displayLocationMenu() {
-//    
-//        char selection = ' ';
-//        
-//        int location = 0;
-//        
-//        do {
-//            System.out.println(LOCATION);  //display the location menu
-//            
-//            String input = this.getInput();   //get the user's selection
-//            selection = input.charAt(0);  //get first character of string
-//        
-//        }   //while the selection is not Exit we do the loop otherwise
-//            //we fall through back to Main Menu
-//            while (selection != 'E');  
-//    }
-    
+      
     private static boolean isInteger(String s) {
         try { 
             Integer.parseInt(s); 
@@ -247,6 +241,8 @@ class LocationMenuView extends View{
         
         public void display04() {
         //Your own frontyard
+        Frontyard frontyard = new Frontyard(locationPlayer);
+        locationPlayer = frontyard.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -259,9 +255,10 @@ class LocationMenuView extends View{
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-        } 
+            crossOffItemMenuView.pickUp();            
+        }
         
         public void display05() {
         //Barbershop
@@ -281,6 +278,8 @@ class LocationMenuView extends View{
         
         public void display06() {
         //Garage
+        Garage garage = new Garage(locationPlayer);
+        locationPlayer = garage.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -293,8 +292,9 @@ class LocationMenuView extends View{
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
+            crossOffItemMenuView.pickUp();            
         }        
             
         public void display07() {
@@ -317,6 +317,8 @@ class LocationMenuView extends View{
         
         public void display08() {
         //Albertson’s
+        Albertsons albertsons = new Albertsons(locationPlayer);
+        locationPlayer = albertsons.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -328,12 +330,15 @@ class LocationMenuView extends View{
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
+            crossOffItemMenuView.pickUp();            
         }     
 
         public void display09() {
         //Filling Station
+        FillingStation fillingStation = new FillingStation(locationPlayer);
+        locationPlayer = fillingStation.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -346,9 +351,10 @@ class LocationMenuView extends View{
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-        }  
+            crossOffItemMenuView.pickUp();            
+        }
         
         public void display10() {
         //Manhole
@@ -388,6 +394,8 @@ class LocationMenuView extends View{
  
         public void display12() {
         //Outhouse
+        Outhouse outhouse = new Outhouse(locationPlayer);
+        locationPlayer = outhouse.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -399,12 +407,15 @@ class LocationMenuView extends View{
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
+            crossOffItemMenuView.pickUp();            
         }  
         
         public void display13() {
         //Playground
+        Playground playground = new Playground(locationPlayer);
+        locationPlayer = playground.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -417,8 +428,9 @@ class LocationMenuView extends View{
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
+            crossOffItemMenuView.pickUp();            
         }  
         
         public void display14() {
@@ -440,6 +452,8 @@ class LocationMenuView extends View{
         
         public void display15() {
         //Florist
+        Florist florist = new Florist(locationPlayer);
+        locationPlayer = florist.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -451,9 +465,10 @@ class LocationMenuView extends View{
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-        } 
+            crossOffItemMenuView.pickUp();            
+        }
        
         public void display16() {
         //Grandma’s House
@@ -522,6 +537,8 @@ class LocationMenuView extends View{
 
         public void display20() {
         //Dark Alley
+        DarkAlley darkAlley = new DarkAlley(locationPlayer);
+        locationPlayer = darkAlley.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -534,12 +551,15 @@ class LocationMenuView extends View{
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
-        }  
+            crossOffItemMenuView.pickUp();            
+        } 
         
         public void display21() {
         //Dollar Theatre
+        DollarTheater dollarTheater = new DollarTheater(locationPlayer);
+        locationPlayer = dollarTheater.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -550,8 +570,9 @@ class LocationMenuView extends View{
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
+            crossOffItemMenuView.pickUp();            
         }  
         
         public void display22() {
@@ -590,6 +611,8 @@ class LocationMenuView extends View{
         
         public void display24() {
         //Police Station
+        PoliceStation policeStation = new PoliceStation(locationPlayer);
+        locationPlayer = policeStation.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -600,12 +623,15 @@ class LocationMenuView extends View{
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
+            crossOffItemMenuView.pickUp();            
         }  
         
         public void display25() {
         //BYUI Computer Lab
+        BYUILab bYUILab = new BYUILab(locationPlayer);
+        locationPlayer = bYUILab.pickupItem();
         System.out.println(
         "======================================================================");
         System.out.println(
@@ -617,8 +643,9 @@ class LocationMenuView extends View{
         + "\n"
         + "\nCross item off my list!");  
 
-            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView();
+            CrossOffItemMenuView crossOffItemMenuView = new CrossOffItemMenuView(locationPlayer);
             crossOffItemMenuView.display(); 
+            crossOffItemMenuView.pickUp();            
         } 
 
     @Override
@@ -630,8 +657,4 @@ class LocationMenuView extends View{
         }
         return false;
     }
-    
-   
-
-
     }

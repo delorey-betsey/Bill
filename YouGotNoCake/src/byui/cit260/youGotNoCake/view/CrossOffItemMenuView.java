@@ -14,7 +14,7 @@ public class CrossOffItemMenuView extends View {
                 + "-----------------------------------------------------------------------"
                 + "\n          List Menu"
                 + "\n-----------------------------------------------------------------------"
-                + "\n    F - Found!  Cross item off list."
+                + "\n    F - Found!  Cross item off my list."
                 + "\n    S - View Sleep Aids List"
                 + "\n    P - View Party Supplies List"
                 + "\n    C - View Cake Ingredients List"
@@ -27,7 +27,7 @@ public class CrossOffItemMenuView extends View {
                 + "-----------------------------------------------------------------------"
                 + "\n          List Menu"
                 + "\n-----------------------------------------------------------------------"
-                + "\n    F - Found!  Cross item off list."
+                + "\n    F - Cross item off my list."
                 + "\n    S - View Sleep Aids List"
                 + "\n    P - View Party Supplies List"
                 + "\n    C - View Cake Ingredients List"
@@ -39,12 +39,13 @@ public class CrossOffItemMenuView extends View {
     
     @Override
     public boolean doAction(Object obj) {
+        
         String value = (String) obj;
         value = value.toUpperCase(); //convert to all upper case
         char choice = value.charAt(0);
         switch (choice) {
-            case 'F': //Found! Cross item off list
-                this.flipFoundFlag();
+            case 'F': //View Sleep Aids list
+                System.out.println("*** Congratulations! The item has been crossed off your list! ***");
                 break;
             case 'S': //View Sleep Aids list
                 this.viewSAList();
@@ -69,16 +70,12 @@ public class CrossOffItemMenuView extends View {
         
     }
 
-    private void flipFoundFlag() {
-        System.out.println("*** flipFoundFlag stub function called ***");
-    }
-
     private void viewSAList() {
         //get the sorted list of Sleep Aid items for the current game
         String[] salist = new SleepAids().getSleepAidsArray();
 
         System.out.println("\nList of Sleep Aids -- Item Status");
-        System.out.println("Description" + "\t\t" + "Found");
+        System.out.println("\nDescription" + "\t\t" + "Found");
         System.out.println();
         
         // sort ArrayList before processing
@@ -106,7 +103,7 @@ public class CrossOffItemMenuView extends View {
         String[] pslist = new PartySupplies().getPartySuppliesArray();
 
         System.out.println("\nList of Party Supplies -- Item Status");
-        System.out.println("Description" + "\t\t" + "Found");
+        System.out.println("\nDescription" + "\t\t" + "Found");
         System.out.println();
         
         //sort ArrayList before processing
@@ -127,16 +124,14 @@ public class CrossOffItemMenuView extends View {
             
             counter++;
         }
-    }
-    
-    
+    } 
 
     private void viewCIList() {
         //get the sorted list of Sleep Aid items for the current game
         String[] cilist = new CakeIngredients().getCakeIngredientsArray();
 
         System.out.println("\nList of Cake Ingredients -- Item Status");
-        System.out.println("Description" + "\t\t" + "Found");
+        System.out.println("\nDescription" + "\t\t" + "Found");
         System.out.println();
         
         //sort the list before displaying
@@ -155,9 +150,7 @@ public class CrossOffItemMenuView extends View {
                 System.out.print("\n");
             }
             
-            counter++;
-        
-    
+            counter++;   
         }
     }
 }

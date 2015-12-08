@@ -26,18 +26,32 @@ public class CakeIngredients implements Serializable{
         return itemFlour;
     }
 
-
+    public void setItemFlour(String itemFlour) {
+        this.itemFlour = itemFlour;
+    }
+    
     public String getItemSugar() {
         return itemSugar;
     }
-
+    
+    public void setItemSugar(String itemSugar) {
+    this.itemSugar = itemSugar;
+    }
 
     public String getItemButta() {
         return itemButta;
     }
+    
+    public void setItemButta(String itemButta) {
+    this.itemButta = itemButta;
+    }
 
     public String getItemBananas() {
         return itemBananas;
+    }
+    
+    public void setItemBananas(String itemBananas) {
+    this.itemBananas = itemBananas;
     }
 }
 
