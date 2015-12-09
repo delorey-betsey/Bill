@@ -475,6 +475,21 @@ class LocationMenuView extends View{
        
         public void display16() {
         //Grandma’s House
+            
+        /*
+            Betsey: since this is an "instant win", you don't have to check for 
+            a win using the WinControl method checkForWin() and you are already
+            displaying your win message.  The only thing left to do is end the 
+            game: System.exit(0)   The 0 in exit is a message to any other code
+            that might have called your program - it means program terminated as 
+            expected, no errors
+            
+            This can be applied to any instant win/loss where you don't need to
+            process the winning/losing logic, just display a message and call 
+            exit
+            
+            */    
+            
         System.out.println(
         "======================================================================");    
         System.out.println(
@@ -488,6 +503,8 @@ class LocationMenuView extends View{
         + "\nE - Exit.");
         System.out.println(
        "\n======================================================================");
+        
+        System.exit(0);
         }
  
         public void display17() {

@@ -17,7 +17,12 @@ public class WinControl {
     public WinControl(Player player) {
         winner = player;
     }
-    
+    /*
+     * Sorry Betsey, wrote this while I was tired.  As originally written, this 
+     * will cause all sorts of wackiness since calling checkForWin() will ALWAYS result in 
+     * a winning message and end the game.  I am fixing now with an additional
+     * if block wrapping the displayWinMessage.
+     */
     public void checkForWin() {
         String winningList = null;
         if (winner.getFoundCakeIngredients().size() == 4){
@@ -29,7 +34,9 @@ public class WinControl {
         if (winner.getFoundSleepAids().size() == 4 ) {
             winningList = "sleep aids";
         }
-        displayWinMessage(winningList);
+        if (winningList != null) {
+            displayWinMessage(winningList);
+        }
     }
     
     public void displayWinMessage(String winList) {

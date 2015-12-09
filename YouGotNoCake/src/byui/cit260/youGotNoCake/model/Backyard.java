@@ -26,6 +26,20 @@ public class Backyard implements Serializable {
     
     
     public Player pickupItem() {
+        
+        /*
+        The ! = NOT.  Remember that an if() block only executes when the argument
+        evaluates to true. So the statement reads: if(NOT mmvPLayer.hasItem(foundItem)).
+        
+        When the player already has picked up the item  .hasItem(foundItem) will
+        return True.  The statement then becomes if(NOT true) or if(false) & the
+        if block does NOT run.  
+        
+        If the player has not already come across the item, .hasItem(foundItem) 
+        will return false and statement becomes if(NOT false) or if(true) 
+        and the if block runs
+        */
+        
         if (!mmvPlayer.hasItem(foundItem)) {
         
             for (String cakeIngredient : new CakeIngredients().getCakeIngredientsArray()) {
