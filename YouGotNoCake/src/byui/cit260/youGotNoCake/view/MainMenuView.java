@@ -1,6 +1,10 @@
 package byui.cit260.youGotNoCake.view;
 
 import byui.cit260.youGotNoCake.model.Player;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import yougotnocake.YouGotNoCake;
 
 public class MainMenuView extends View {
     
@@ -49,7 +53,7 @@ public class MainMenuView extends View {
                 this.displayHelpMenu();
                 break;
             case 'S': //save the current game
-                this.saveGame();
+                this.saveGame(mmvPlayer);
                 break;
             case 'E': //exit the program
                 System.exit(0);
@@ -67,8 +71,8 @@ public class MainMenuView extends View {
     }
     
     private void startExistingGame() {
-        //START EXISTING GAME ** ADD LANGUAGE TO GET SAVED GAME
-        System.out.println("*** startExistingGame function called ***");
+        mmvPlayer = YouGotNoCake.getSavedPlayer();
+        this.displayLocationMenu();
     }
     
     private void displayHelpMenu() {
@@ -78,7 +82,10 @@ public class MainMenuView extends View {
         helpMenu.display();
     }
     
-    private void saveGame() {
-        System.out.println("*** saveGame function called ***");    
+    private void saveGame(Player player) {
+       
+            YouGotNoCake.saveGamePlayer(player);
+       
+        }
     }    
-}
+

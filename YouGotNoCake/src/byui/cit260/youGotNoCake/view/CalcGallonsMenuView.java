@@ -1,4 +1,5 @@
 package byui.cit260.youGotNoCake.view;
+import byui.cit260.youGotNoCake.exception.CalcGallonsException;
 import java.util.Scanner;
 
 public class CalcGallonsMenuView {
@@ -18,31 +19,36 @@ public class CalcGallonsMenuView {
         
         System.out.println(GALLONSCALCULATION);  //display the main menu
 
-        int members = this.getMembers();   //get the user's household number
+        try {
+            int members = this.getMembers();   //get the user's household number
 
-        double result = this.calcGallons(members);  //calculate gallons flushed based on user input
-        
-        System.out.println("\nYour household waste water in gallons per day from flushing is :     " 
-                + result  //display the calculated gallons"
-        );
-        System.out.println ("\nNo wonder it doesn’t smell very good down here."
-        + "Continue your quest...");
-        System.out.println(
-       "\n======================================================================"); 
-    
+            double result = this.calcGallons(members);  //calculate gallons flushed based on user input
+
+            System.out.println("\nYour household waste water in gallons per day from flushing is :     "
+                    + result //display the calculated gallons"
+            );
+            System.out.println("\nNo wonder it doesn’t smell very good down here.");
+
+        } catch (CalcGallonsException e) {
+            System.out.println("Error processing number of household members");
+            LogErrorView.logError(this.getClass().getName(), e.toString());
+        } finally {
+            System.out.println("Continue your quest..."
+                    + "\n======================================================================");
+        }
  }
  
-    private static boolean isInteger(String x) {
+    private static boolean isInteger(String x) throws CalcGallonsException {
         try { 
             Integer.parseInt(x); 
         } catch(NumberFormatException | NullPointerException e) { 
-            return false; 
+            throw new CalcGallonsException(e.toString()); 
         }
         // only got here if we didn't return false
         return true;
     }
     
-    private int getMembers() {
+    private int getMembers() throws CalcGallonsException{
 
             boolean valid = false;    //indicates if the choice has been retrieved
             String members = null;
@@ -60,21 +66,20 @@ public class CalcGallonsMenuView {
             //then checks to validate input is integer
             //then checks for number selection between 1-25
             //if valid, perform doAction
+            int m = 0;
             if (members.charAt(0) != 'E'){
                 if (isInteger(members)){
                     //this is creating the new integer variable 'location'
                     //and using a prepackaged function of parseInt from the
                     //the available functions in the Integer class
                     //to see the available functions, type 'Integer.' and hit enter.
-                    int m = Integer.parseInt(members);
-                    if (m >0 && m < 51){
-                        return m;  //return the valid choice
+                    m = Integer.parseInt(members);
+                    if (m <=0 || m >= 51){
+                        throw new CalcGallonsException("Invalid number of household members.");
                     }  
-                } else {
-                    System.out.println("\n*** Invalid selection *** Try again.");
-                }
+                } 
             }
-            return -1;// TODO else return user to locations menu;     
+            return m;
         }
     
     public double calcGallons(int members){
