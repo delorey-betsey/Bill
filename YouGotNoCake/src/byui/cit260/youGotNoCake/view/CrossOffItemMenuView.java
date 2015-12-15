@@ -68,17 +68,22 @@ public class CrossOffItemMenuView extends View {
     
     private void viewSAList() {
         //get the sorted list of Sleep Aid items for the current game
-        String[] salist = new SleepAids().getSleepAidsArray();
+        SleepAids[] salist = new SleepAids[]{
+            SleepAids.APNEA_FAIRY,
+            SleepAids.TAX_CODE,
+            SleepAids.TRANQUILIZER_DART,
+            SleepAids.WARM_MILK
+        };
 
         System.out.println("\nList of Sleep Aids -- Item Status");
         System.out.println("\nDescription" + "\t\t" + "Found");
         System.out.println();
         
         // sort ArrayList before processing
-        pickUpPlayer.sortPlayerItems(pickUpPlayer.getFoundSleepAids());
+        pickUpPlayer.sortSleepAids(pickUpPlayer.getFoundSleepAids());
         //for each Sleep Aids list item
         int counter = 0;
-        for (String saItem : salist) {
+        for (SleepAids saItem : salist) {
             //display the description and the found flag
             System.out.print(saItem +"\t\t");
             

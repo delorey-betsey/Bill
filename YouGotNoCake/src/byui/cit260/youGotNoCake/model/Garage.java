@@ -8,12 +8,12 @@ public class Garage implements Serializable {
      //class-instance variables
     private Player mmvPlayer;
     private int locationID;
-    private String foundItem;
+    private SleepAids foundItem;
 
     public Garage(Player player) {
         this.mmvPlayer = player;
         this.locationID = 6;
-        this.foundItem = "Apnea Fairy";
+        this.foundItem = SleepAids.APNEA_FAIRY;
     }
     
     public int getLocationID() {
@@ -25,17 +25,13 @@ public class Garage implements Serializable {
     }
 
     public Player pickupItem() {
-        for (String cakeIngredient : new CakeIngredients().getCakeIngredientsArray()) {
-            if (cakeIngredient.equalsIgnoreCase(foundItem)) {
-                mmvPlayer.getFoundCakeIngredients().add(foundItem);
-            }
-        }
-        for (String partySupply : new PartySupplies().getPartySuppliesArray()) {
-            if (partySupply.equalsIgnoreCase(foundItem)) {
-                mmvPlayer.getFoundPartySupplies().add(foundItem);
-            }
-        }
-        for (String sleepAid : new SleepAids().getSleepAidsArray()) {
+
+        for (SleepAids sleepAid : new SleepAids[]{
+            SleepAids.APNEA_FAIRY,
+            SleepAids.TAX_CODE,
+            SleepAids.TRANQUILIZER_DART,
+            SleepAids.WARM_MILK
+        }) {
             if (sleepAid.equals(foundItem)) {
                 mmvPlayer.getFoundSleepAids().add(foundItem);
             }

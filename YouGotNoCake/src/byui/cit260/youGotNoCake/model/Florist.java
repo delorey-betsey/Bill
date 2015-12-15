@@ -35,11 +35,7 @@ public class Florist implements Serializable {
                 mmvPlayer.getFoundPartySupplies().add(foundItem);
             }
         }
-        for (String sleepAid : new SleepAids().getSleepAidsArray()) {
-            if (sleepAid.equals(foundItem)) {
-                mmvPlayer.getFoundSleepAids().add(foundItem);
-            }
-        }
+        
         return mmvPlayer;
     }
             

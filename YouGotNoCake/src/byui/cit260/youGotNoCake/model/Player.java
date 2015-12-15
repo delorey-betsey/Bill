@@ -13,12 +13,12 @@ public class Player implements Serializable{
     private String gameStatus;
     private ArrayList<String> foundCakeIngredients;
     private ArrayList<String> foundPartySupplies;
-    private ArrayList<String> foundSleepAids;
+    private ArrayList<SleepAids> foundSleepAids;
 
     public Player() {
         foundCakeIngredients = new ArrayList<String>();
         foundPartySupplies = new ArrayList<String>();
-        foundSleepAids = new ArrayList<String>();
+        foundSleepAids = new ArrayList<SleepAids>();
     }  
 
     public ArrayList<String> sortPlayerItems (ArrayList<String> itemsToSort) {
@@ -32,15 +32,34 @@ public class Player implements Serializable{
         return itemsToSort;
     }
     
+    public ArrayList<SleepAids> sortSleepAids (ArrayList<SleepAids> itemsToSort) {
+        itemsToSort.sort( new Comparator<SleepAids>(){
+            @Override
+            public int compare(SleepAids s1, SleepAids s2) {
+                return s1.toString().compareToIgnoreCase(s2.toString());
+            }
+        });
+        
+        return itemsToSort;
+    }
+    
     public boolean hasItem(String item) {
         boolean hasItem = false;
         if (foundCakeIngredients.contains(item) 
-                || foundPartySupplies.contains(item) 
-                || foundSleepAids.contains(item)) {
+                || foundPartySupplies.contains(item)) {
             hasItem = true;
         }
         return hasItem;
     }
+    
+    public boolean hasItem(SleepAids item){
+         boolean hasItem = false;
+        if (foundSleepAids.contains(item)) {
+            hasItem = true;
+        }
+        return hasItem;
+    }
+    
     
     public ArrayList<String> getFoundCakeIngredients() {
         return foundCakeIngredients;
@@ -58,11 +77,11 @@ public class Player implements Serializable{
         this.foundPartySupplies = foundPartySupplies;
     }
 
-    public ArrayList<String> getFoundSleepAids() {
+    public ArrayList<SleepAids> getFoundSleepAids() {
         return foundSleepAids;
     }
 
-    public void setFoundSleepAids(ArrayList<String> foundSleepAids) {
+    public void setFoundSleepAids(ArrayList<SleepAids> foundSleepAids) {
         this.foundSleepAids = foundSleepAids;
     }
     
